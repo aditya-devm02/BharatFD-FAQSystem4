@@ -19,11 +19,6 @@ A full-stack FAQ management system with multilingual support, built using the ME
 - Axios
 - React-Quill (Rich Text Editor)
 
-### DevOps & Tools
-- Docker
-- Heroku (Deployment)
-- Git (Version Control)
-
 ## Features
 
 - Create and manage FAQs
@@ -45,22 +40,23 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/faq-management.git
-   cd faq-management
+   cd BharatFD-FAQSystem4
+   git clone https://github.com/your-username/faq-management.git](https://github.com/aditya-devm02/BharatFD-FAQSystem4.git
    ```
 
 2. **Install dependencies**
    ```sh
    npm install
-   cd client && npm install
    ```
 
 3. **Set up environment variables**
    - Create a `.env` file in the root directory and add:
      ```sh
-     MONGO_URI=your_mongodb_connection_string
-     REDIS_URL=your_redis_connection_string
+     MONGO=your_mongodb_connection_string
+     REDIS_HOST=your_redis_connection_string
+     REDIS_PORT=
      PORT=8000
+     RAPID_API_HOST=
      ```
 
 4. **Start the server**
@@ -78,10 +74,12 @@ Before you begin, ensure you have the following installed:
 
 ### Create a new FAQ
 ```sh
-curl --request POST \
-  --url http://localhost:8000/api/faqs \
-  --header 'Content-Type: application/json' \
-  --data '{"question": "What is the capital of France?", "answer": "Paris"}'
+curl 'http://localhost:8000/api/faqs' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  --data-raw '{"question":"what does BharatFD does?","answer":"BharatFD is a platform that helps Indian users compare and invest in fixed deposits (FDs) from trusted banks. It provides easy management of FDs, access to the latest interest rates, secure KYC, and 24/7 support. The platform partners with banks to offer competitive rates, including options for senior citizens."}'
 ```
 
 ### Get all FAQs
@@ -90,24 +88,19 @@ curl --request GET \
   --url http://localhost:8000/api/faqs 
 ```
 
-### Translate an FAQ
-```sh
-curl --request POST \
-  --url http://localhost:8000/api/faqs/translate \
-  --header 'Content-Type: application/json' \
-  --data '{"question": "What is the capital of France?", "to": "fr"}'
-```
+## Screenshots
 
-## Adding Screenshots to README.md
 
-To add screenshots, follow these steps:
 
-![Screenshot 1](screenshots/Screenshot 2025-02-01 at 7.39.34 PM.png)
-![Screenshot 2](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.39.34%E2%80%AFPM.png)
-![Screenshot 3](screenshots/Screenshot%202025-02-01%20at%207.45.04%20PM.png)
-![Screenshot 4](screenshots/Screenshot%202025-02-01%20at%207.45.18%20PM.png)
-![Screenshot 5](screenshots/Screenshot%202025-02-01%20at%207.45.51%20PM.png)
-![Screenshot 6](screenshots/Screenshot%202025-02-01%20at%207.46.10%20PM.png)
+![Screenshot 1](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.39.34%E2%80%AFPM.png)
+![Screenshot 2](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.44.48%E2%80%AFPM.png)
+![Screenshot 3](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.44.14%E2%80%AFPM.png)
+
+![Screenshot 4](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.45.04%E2%80%AFPM.png)
+![Screenshot 5](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.45.18%E2%80%AFPM.png)
+![Screenshot 6](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.45.51%E2%80%AFPM.png)
+![Screenshot 7](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.46.10%E2%80%AFPM.png)
+  
   
    ```
 3. Commit and push the images to the repository so they are accessible in the README file.
