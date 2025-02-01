@@ -105,13 +105,7 @@ curl --request GET \
   Teatcases
 ![Screenshot 7](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.46.10%E2%80%AFPM.png)
   
-  
-   ```
-3. Commit and push the images to the repository so they are accessible in the README file.
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
