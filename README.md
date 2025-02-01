@@ -103,7 +103,7 @@ curl --request POST \
 To add screenshots, follow these steps:
 
 ![Screenshot 1](screenshots/Screenshot 2025-02-01 at 7.39.34 PM.png)
-![Screenshot 2](screenshots/Screenshot%202025-02-01%20at%207.44.48%20PM.png)
+![Screenshot 2](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.39.34%E2%80%AFPM.png)
 ![Screenshot 3](screenshots/Screenshot%202025-02-01%20at%207.45.04%20PM.png)
 ![Screenshot 4](screenshots/Screenshot%202025-02-01%20at%207.45.18%20PM.png)
 ![Screenshot 5](screenshots/Screenshot%202025-02-01%20at%207.45.51%20PM.png)
