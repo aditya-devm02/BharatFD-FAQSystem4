@@ -1,48 +1,112 @@
-const faqRepository = require("../repositories/faqRepository");
-const cacheService = require("./cacheService");
-const { translateText } = require("./translationService");
+const faqRepository = require('../repositories/faqRepository');
+const cacheService = require('./cacheService');
+const { translateText } = require('./translationService');
 
 class FAQService {
   async createFAQ(question, answer) {
-    const translations = await Promise.all([
-      translateText(question, "fr").then(trans => ({ lang: 'fr', question: trans })),
-      translateText(question, "es").then(trans => ({ lang: 'es', question: trans })),
-      translateText(answer, "fr").then(trans => ({ lang: 'fr', answer: trans })),
-      translateText(answer, "es").then(trans => ({ lang: 'es', answer: trans }))
-    ]);
+    try {
+      // Generate translations
+      const translations = {
+        fr: {
+          question: await translateText(question, 'fr'),
+          answer: await translateText(answer, 'fr')
+        },
+        es: {
+          question: await translateText(question, 'es'),
+          answer: await translateText(answer, 'es')
+        }
+      };
 
-    const translationObj = translations.reduce((acc, curr) => {
-      if (!acc[curr.lang]) acc[curr.lang] = {};
-      if (curr.question) acc[curr.lang].question = curr.question;
-      if (curr.answer) acc[curr.lang].answer = curr.answer;
-      return acc;
-    }, {});
+      const faq = await faqRepository.create({
+        question,
+        answer,
+        translations
+      });
 
-    const faqData = {
-      question,
-      answer,
-      translations: translationObj
-    };
-
-    const newFaq = await faqRepository.create(faqData);
-    await cacheService.delete("faqs_*");
-    return newFaq;
+      // Clear cache after creating new FAQ
+      await cacheService.delete('faqs_*');
+      return faq;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  async getFAQs(lang = "en") {
-    const cachedData = await cacheService.get(`faqs_${lang}`);
-    if (cachedData) {
-      return JSON.parse(cachedData);
+  async getFAQs(language = 'en') {
+    try {
+      // Try to get from cache first
+      const cacheKey = `faqs_${language}`;
+      const cachedFaqs = await cacheService.get(cacheKey);
+      
+      if (cachedFaqs) {
+        return JSON.parse(cachedFaqs);
+      }
+
+      // If not in cache, get from database
+      const faqs = await faqRepository.findAll();
+      
+      // Transform FAQs based on language
+      const translatedFaqs = faqs.map(faq => {
+        if (language === 'en') {
+          return {
+            id: faq._id,
+            question: faq.question,
+            answer: faq.answer
+          };
+        }
+
+        const translation = faq.translations?.[language];
+        return {
+          id: faq._id,
+          question: translation?.question || faq.question,
+          answer: translation?.answer || faq.answer
+        };
+      });
+
+      // Cache the results
+      await cacheService.set(cacheKey, JSON.stringify(translatedFaqs), 3600);
+      return translatedFaqs;
+    } catch (error) {
+      throw error;
     }
+  }
 
-    const faqs = await faqRepository.findAll();
-    const translatedFAQs = faqs.map((faq) => ({
-      question: faq.translations[lang]?.question || faq.question,
-      answer: faq.translations[lang]?.answer || faq.answer,
-    }));
+  async updateFAQ(id, { question, answer }) {
+    try {
+      const translations = {
+        fr: {
+          question: await translateText(question, 'fr'),
+          answer: await translateText(answer, 'fr')
+        },
+        es: {
+          question: await translateText(question, 'es'),
+          answer: await translateText(answer, 'es')
+        }
+      };
 
-    await cacheService.set(`faqs_${lang}`, translatedFAQs);
-    return translatedFAQs;
+      const updatedFaq = await faqRepository.update(id, {
+        question,
+        answer,
+        translations
+      });
+
+      if (!updatedFaq) {
+        throw new Error('FAQ not found');
+      }
+
+      await cacheService.delete('faqs_*');
+      return updatedFaq;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteFAQ(id) {
+    const result = await faqRepository.delete(id);
+    if (!result) {
+      throw new Error('FAQ not found');
+    }
+    await cacheService.delete('faqs_*');
+    return result;
   }
 }
 
