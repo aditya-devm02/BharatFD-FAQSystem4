@@ -102,7 +102,7 @@ curl --request POST \
 
 To add screenshots, follow these steps:
 
-![Screenshot 1](screenshots/Screenshot%202025-02-01%20at%207.44.14%20PM.png)
+![Screenshot 1](screenshots/Screenshot 2025-02-01 at 7.39.34 PM.png)
 ![Screenshot 2](screenshots/Screenshot%202025-02-01%20at%207.44.48%20PM.png)
 ![Screenshot 3](screenshots/Screenshot%202025-02-01%20at%207.45.04%20PM.png)
 ![Screenshot 4](screenshots/Screenshot%202025-02-01%20at%207.45.18%20PM.png)
