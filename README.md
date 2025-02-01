@@ -92,13 +92,17 @@ curl --request GET \
 
 
 
-![Screenshot 1](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.39.34%E2%80%AFPM.png)
+- Api responce
 ![Screenshot 2](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.44.48%E2%80%AFPM.png)
+- Giving input
 ![Screenshot 3](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.44.14%E2%80%AFPM.png)
-
+- Output in language 1
 ![Screenshot 4](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.45.04%E2%80%AFPM.png)
+- Output in language 2
 ![Screenshot 5](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.45.18%E2%80%AFPM.png)
+- Database queries
 ![Screenshot 6](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.45.51%E2%80%AFPM.png)
+  Teatcases
 ![Screenshot 7](https://github.com/aditya-devm02/BharatFD-FAQSystem4/blob/main/screenshots/Screenshot%202025-02-01%20at%207.46.10%E2%80%AFPM.png)
   
   
