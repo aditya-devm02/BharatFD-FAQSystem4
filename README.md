@@ -102,16 +102,12 @@ curl --request POST \
 
 To add screenshots, follow these steps:
 
-1. Place the screenshots inside a `screenshots/` directory in your project.
-2. Add the following markdown syntax to display the images:
-   ```md
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.39.34 PM.png)
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.44.14 PM.png)
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.44.48 PM.png)
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.45.04 PM.png)
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.45.18 PM.png)
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.45.51 PM.png)
-   ![FAQ List](screenshots/Screenshot%202025-02-01%20at%207.46.10 PM.png)
+![Screenshot 1](screenshots/Screenshot%202025-02-01%20at%207.44.14%20PM.png)
+![Screenshot 2](screenshots/Screenshot%202025-02-01%20at%207.44.48%20PM.png)
+![Screenshot 3](screenshots/Screenshot%202025-02-01%20at%207.45.04%20PM.png)
+![Screenshot 4](screenshots/Screenshot%202025-02-01%20at%207.45.18%20PM.png)
+![Screenshot 5](screenshots/Screenshot%202025-02-01%20at%207.45.51%20PM.png)
+![Screenshot 6](screenshots/Screenshot%202025-02-01%20at%207.46.10%20PM.png)
   
    ```
 3. Commit and push the images to the repository so they are accessible in the README file.
